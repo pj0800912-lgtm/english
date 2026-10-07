@@ -1,0 +1,21 @@
+from gtts import gTTS
+import os
+
+def pronounce(text, lang='en'):
+    # Generate speech audio from text
+    tts = gTTS(text=text, lang=lang, slow=False)
+    
+    # Save as an audio file
+    filename = "pronunciation.mp3"
+    tts.save(filename)
+    
+    # Play the saved audio file
+    os.system(f"start {filename}")  # On Windows
+    # os.system(f"afplay {filename}")  # On macOS
+    # os.system(f"mpg123 {filename}")  # On Linux
+
+# Example Usage:
+pronounce("Hello, welcome to Python pronunciation test!")
+
+# For Hindi pronunciation:
+# pronounce("नमस्ते, आप कैसे हैं?", lang='hi')
